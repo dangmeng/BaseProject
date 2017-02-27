@@ -2,4 +2,5 @@
     <string name="app_name">BaseProject</string>
     <string name="query_hint">请输入要搜索的内容</string>
     <string name="camera_name">相机</string>
+    <string name="detail_name">详情</string>
 </resources>

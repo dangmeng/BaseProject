@@ -6,14 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * Created by m on 2017/2/23.
  * ${describe}
  */
 
-public abstract class BaseFragment extends SupportFragment {
+public abstract class BaseFragment extends SwipeBackFragment {
 
 
 

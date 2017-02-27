@@ -1,6 +1,7 @@
 package dm.com.ui.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import dm.com.R;
+import dm.com.ui.fragment.activity.DetailActivity;
 
 /**
  * Created by m on 2017/2/23.
@@ -47,6 +50,13 @@ public class CameraFragment extends BaseFragment {
 
         GridView gridView = (GridView) rootView.findViewById(R.id.gridView);
         gridView.setAdapter(new GridViewAdapter(getActivity()));
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String imageUrl = (String) view.getTag();
+                startActivity(new Intent(getActivity(), DetailActivity.class).putExtra("url",imageUrl));
+            }
+        });
     }
 
     private static class GridViewAdapter extends BaseAdapter {

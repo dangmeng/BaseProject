@@ -10,9 +10,9 @@ import dm.com.ui.fragment.SearchFragment;
 import me.majiajie.pagerbottomtabstrip.Controller;
 import me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectListener;
-import me.yokeyword.fragmentation.SupportActivity;
+import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
-public class MainActivity extends SupportActivity {
+public class MainActivity extends SwipeBackActivity {
 
     private PagerBottomTabLayout tabLayout;
     private static final int FIRST = 0;
@@ -30,6 +30,9 @@ public class MainActivity extends SupportActivity {
     }
 
     private void initView(Bundle savedInstanceState) {
+        // (默认使用Fragment根布局的background属性,如若没有则使用Theme的windowBackground属性)
+        setDefaultFragmentBackground(android.R.color.white);
+//        int defaultFragmentBackground = getDefaultFragmentBackground();
         tabLayout = (PagerBottomTabLayout) findViewById(R.id.main_tab);
         mFragments = new BaseFragment[4];
         if (savedInstanceState == null) {

@@ -16,6 +16,7 @@ public abstract class BaseActivity extends SupportActivity{
 
     protected Toolbar toolbar;
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
