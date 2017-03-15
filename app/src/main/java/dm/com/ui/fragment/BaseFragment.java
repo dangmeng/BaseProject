@@ -15,7 +15,8 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 public abstract class BaseFragment extends SwipeBackFragment {
 
-
+    protected int page = 1;
+    protected int pageSize = 30;
 
     @Nullable
     @Override

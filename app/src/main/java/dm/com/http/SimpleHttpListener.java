@@ -15,6 +15,8 @@
  */
 package dm.com.http;
 
+import com.yanzhenjie.nohttp.rest.Response;
+
 /**
  * Created by Yan Zhenjie on 2016/12/17.
  *
@@ -25,7 +27,7 @@ public abstract class SimpleHttpListener<T> implements HttpListener<T> {
     }
 
     @Override
-    public void onFailed(int what) {
+    public void onFailed(int what,Response<T> response) {
 
     }
 

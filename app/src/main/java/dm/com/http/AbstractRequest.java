@@ -116,16 +116,23 @@ public abstract class AbstractRequest<T> extends RestRequest<Result<T>> {
         Logger.i("返回的json字符串---->" + responseBodyString);
         String data = null;
         String msg = null;
+        boolean error = false;
         int code = 0;
         //服务器http协议请求错误了。
         if (responseCodee == 200) {
             if (!TextUtils.isEmpty(responseBodyString)) {
                 JSONObject jsonObject = JSON.parseObject(responseBodyString);
-                msg = jsonObject.getString("msg");
-                code = jsonObject.getIntValue("code");
-                if (code == 0) { // 业务真正的成功。
-                    data = jsonObject.getString("data");
-                } else {
+//                msg = jsonObject.getString("msg");
+//                code = jsonObject.getIntValue("code");
+//                if (code == 0) { // 业务真正的成功。
+//                    data = jsonObject.getString("data");
+//                } else {
+//                    return new Result<>(false, null, responseHeaders, msg, code);
+//                }
+                error = jsonObject.getBoolean("error");
+                if (!error) {
+                    data = jsonObject.getString("results");
+                }else {
                     return new Result<>(false, null, responseHeaders, msg, code);
                 }
             } else {

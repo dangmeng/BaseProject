@@ -33,7 +33,7 @@ public class CameraFragment extends BaseFragment {
 
     @Override
     protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_camera, container, false);
+        rootView = inflater.inflate(R.layout.camera_fragment, container, false);
         return rootView;
     }
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dm.com.weiget.MultipleStatusView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/multipleStatusView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:emptyView="@layout/custom_empty_view"
+    app:errorView="@layout/custom_error_view"
+    app:loadingView="@layout/custom_loading_view"
+    app:noNetworkView="@layout/custom_no_network_view"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</dm.com.weiget.MultipleStatusView>

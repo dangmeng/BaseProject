@@ -5,4 +5,21 @@
     <dimen name="item_width">192dp</dimen>
     <dimen name="item_height">192dp</dimen>
     <dimen name="spacing_large">16dp</dimen>
+
+
+    <dimen name="small_size">12sp</dimen>
+    <dimen name="normal_size">14sp</dimen>
+    <dimen name="middle_size">16sp</dimen>
+    <dimen name="lager_size">18sp</dimen>
+    <dimen name="big_lager_size">20sp</dimen>
+    <!-- google -->
+    <dimen name="refresh_header_height_google">100dp</dimen>
+    <dimen name="refresh_trigger_offset_google">100dp</dimen>
+    <dimen name="refresh_final_offset_google">150dp</dimen>
+    <dimen name="refresh_drawable_size_google">40dp</dimen>
+
+    <dimen name="load_more_footer_height_google">60dp</dimen>
+    <dimen name="load_more_trigger_offset_google">60dp</dimen>
+    <dimen name="load_more_final_offset_google">100dp</dimen>
+    <dimen name="load_more_drawable_size_google">36dp</dimen>
 </resources>

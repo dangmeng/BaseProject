@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">BaseProject</string>
+
     <string name="query_hint">请输入要搜索的内容</string>
     <string name="camera_name">相机</string>
     <string name="detail_name">详情</string>
@@ -7,4 +8,9 @@
     <string name="error_timeout">请求超时</string>
     <string name="error_not_found_server">找不到服务器</string>
     <string name="error_url_error">URL是错的</string>
+
+
+    <string name="empty_view_hint">暂无数据。点击刷新</string>
+    <string name="error_view_hint">加载失败，点击重试</string>
+    <string name="no_network_view_hint">网络异常，点击重试</string>
 </resources>

@@ -59,7 +59,7 @@ public class DefaultResponseListener<T> implements OnResponseListener<Result<T>>
 //            ToastUtils.showLongToast("请求超时，请稍后重试！");
         }
         if (httpListener != null && !abstractRequest.isCanceled())
-            httpListener.onFailed(what);
+            httpListener.onFailed(what, (Response<T>) response);
     }
 
     @Override
