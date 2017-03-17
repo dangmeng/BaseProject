@@ -10,9 +10,9 @@ import dm.com.ui.fragment.SearchFragment;
 import me.majiajie.pagerbottomtabstrip.Controller;
 import me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectListener;
-import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
+import me.yokeyword.fragmentation.SupportActivity;
 
-public class MainActivity extends SwipeBackActivity {
+public class MainActivity extends SupportActivity {
 
     private PagerBottomTabLayout tabLayout;
     private static final int FIRST = 0;

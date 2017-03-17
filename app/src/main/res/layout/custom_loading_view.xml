@@ -12,6 +12,6 @@
         style="@style/AVLoadingIndicatorView"
         android:layout_centerInParent="true"
         android:visibility="visible"
-        app:indicatorColor="?attr/colorPrimary"
+        app:indicatorColor="#FF4081"
         app:indicatorName="BallSpinFadeLoaderIndicator"/>
 </RelativeLayout>

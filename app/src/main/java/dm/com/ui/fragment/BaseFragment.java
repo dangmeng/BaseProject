@@ -17,6 +17,10 @@ public abstract class BaseFragment extends SwipeBackFragment {
 
     protected int page = 1;
     protected int pageSize = 30;
+    /**
+     * 用来标记取消
+     */
+    protected Object object = new Object();
 
     @Nullable
     @Override

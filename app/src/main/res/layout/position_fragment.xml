@@ -12,9 +12,14 @@
     app:noNetworkView="@layout/custom_no_network_view"
     tools:context=".MainActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <TextView
+        android:layout_below="@+id/toolbar"
         android:id="@+id/content_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 
 </dm.com.weiget.MultipleStatusView>

@@ -2,6 +2,8 @@ package dm.com.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import dm.com.http.CallServer;
 import dm.com.http.Result;
 import dm.com.http.SimpleHttpListener;
 import dm.com.http.StringRequest;
+import dm.com.utils.CommonUtils;
 import dm.com.weiget.MultipleStatusView;
 
 /**
@@ -43,10 +46,17 @@ public class PositionFragment extends BaseFragment {
         return rootView;
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         textView = (TextView) rootView.findViewById(R.id.content_view);
+        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        TextView title = (TextView) rootView.findViewById(R.id.tv_title);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("");
+        title.setText(R.string.position_name);
+        setHasOptionsMenu(true);
         multipleStatusView = (MultipleStatusView) rootView.findViewById(R.id.multipleStatusView);
     }
 
@@ -54,10 +64,23 @@ public class PositionFragment extends BaseFragment {
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
 
+        loadData();
+        multipleStatusView.setOnRetryClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!CommonUtils.isFastDoubleClick()) {
+                    loadData();
+                }
+            }
+        });
+    }
+
+    private void loadData() {
         multipleStatusView.showLoading();
         String url = Config.getRequestUrl(pageSize,page);
         Logger.e(url);
         StringRequest request = new StringRequest(url, RequestMethod.GET);
+        request.setCancelSign(object);
 
         CallServer.getInstance().add(NOHTTP_WHAT, request, new SimpleHttpListener<String>() {
 
@@ -81,15 +104,19 @@ public class PositionFragment extends BaseFragment {
                 // 请求失败
                 Throwable exception = response.getException();
                 if (exception instanceof NetworkError) {// 网络不好
-//                    Toast.makeText(getActivity(), R.string.error_please_check_network,Toast.LENGTH_LONG).show();
                     multipleStatusView.showNoNetwork();
-                } else {
+                } else { //其他错误
                     multipleStatusView.showError();
                 }
                 Logger.e("错误：" + exception.getMessage());
             }
         });
+    }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //取消请求
+        CallServer.getInstance().cancelBySign(object);
     }
 }

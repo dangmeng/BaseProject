@@ -30,9 +30,6 @@ public class MultipleStatusView extends RelativeLayout {
     private View mLoadingView;
     private View mNoNetworkView;
     private View mContentView;
-    private View mEmptyRetryView;
-    private View mErrorRetryView;
-    private View mNoNetworkRetryView;
     private int mEmptyViewResId;
     private int mErrorViewResId;
     private int mLoadingViewResId;
@@ -82,6 +79,7 @@ public class MultipleStatusView extends RelativeLayout {
     /**
      * 获取当前状态
      */
+    @SuppressWarnings("unused")
     public int getViewStatus() {
         return mViewStatus;
     }
@@ -102,7 +100,7 @@ public class MultipleStatusView extends RelativeLayout {
         mViewStatus = STATUS_EMPTY;
         if (null == mEmptyView) {
             mEmptyView = mInflater.inflate(mEmptyViewResId, null);
-            mEmptyRetryView = mEmptyView.findViewById(R.id.empty_retry_view);
+            View mEmptyRetryView = mEmptyView.findViewById(R.id.empty_retry_view);
             if (null != mOnRetryClickListener && null != mEmptyRetryView) {
                 mEmptyRetryView.setOnClickListener(mOnRetryClickListener);
             }
@@ -118,7 +116,7 @@ public class MultipleStatusView extends RelativeLayout {
         mViewStatus = STATUS_ERROR;
         if (null == mErrorView) {
             mErrorView = mInflater.inflate(mErrorViewResId, null);
-            mErrorRetryView = mErrorView.findViewById(R.id.error_retry_view);
+            View mErrorRetryView = mErrorView.findViewById(R.id.error_retry_view);
             if (null != mOnRetryClickListener && null != mErrorRetryView) {
                 mErrorRetryView.setOnClickListener(mOnRetryClickListener);
             }
@@ -146,7 +144,7 @@ public class MultipleStatusView extends RelativeLayout {
         mViewStatus = STATUS_NO_NETWORK;
         if (null == mNoNetworkView) {
             mNoNetworkView = mInflater.inflate(mNoNetworkViewResId, null);
-            mNoNetworkRetryView = mNoNetworkView.findViewById(R.id.no_network_retry_view);
+            View mNoNetworkRetryView = mNoNetworkView.findViewById(R.id.no_network_retry_view);
             if (null != mOnRetryClickListener && null != mNoNetworkRetryView) {
                 mNoNetworkRetryView.setOnClickListener(mOnRetryClickListener);
             }
