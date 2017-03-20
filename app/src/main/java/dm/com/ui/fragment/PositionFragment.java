@@ -52,10 +52,8 @@ public class PositionFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         textView = (TextView) rootView.findViewById(R.id.content_view);
         Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-        TextView title = (TextView) rootView.findViewById(R.id.tv_title);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("");
-        title.setText(R.string.position_name);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.position_name);
         setHasOptionsMenu(true);
         multipleStatusView = (MultipleStatusView) rootView.findViewById(R.id.multipleStatusView);
     }

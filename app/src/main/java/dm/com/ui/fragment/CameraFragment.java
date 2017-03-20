@@ -2,6 +2,8 @@ package dm.com.ui.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
@@ -42,10 +43,8 @@ public class CameraFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-        TextView title = (TextView) rootView.findViewById(R.id.tv_title);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("");
-        title.setText(R.string.camera_name);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.camera_name);
         setHasOptionsMenu(true);
 
         GridView gridView = (GridView) rootView.findViewById(R.id.gridView);
@@ -57,6 +56,7 @@ public class CameraFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), DetailActivity.class).putExtra("url",imageUrl));
             }
         });
+        gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
     }
 
     private static class GridViewAdapter extends BaseAdapter {

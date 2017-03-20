@@ -16,6 +16,10 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="TransparentText">
+        <item name="android:textColor">#00000000</item>
+    </style>
+
     <style name="MultipleStatusView"/>
     <style name="MultipleStatusView.Content">
         <item name="android:layout_width">wrap_content</item>
