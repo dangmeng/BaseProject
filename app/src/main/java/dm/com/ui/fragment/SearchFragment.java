@@ -50,6 +50,7 @@ public class SearchFragment extends BaseFragment {
         pushBody();
     }
 
+    /**nohttp post请求测试案例*/
     private void pushBody() {
 
         Request<String> request = NoHttp.createStringRequest(Config.SERVER_BASEURL, RequestMethod.POST);
@@ -60,18 +61,12 @@ public class SearchFragment extends BaseFragment {
         request.add("brf", "电子账号下子账户信息查询");
         request.add("busType", "----");
         request.add("chnlDate", "20170320");
-        request.add("chnlTrcNo", "");
         request.add( "chnlType", "0061");
         request.add("chrgAccNo", "6236216609000063505");
-        request.add("chrgAccSeqn", "");
-        request.add("chrgAmt", "");
         request.add("cifNo", "110000001931");
         request.add("cityCode", "233");
-        request.add("deductAmt", "");
         request.add("deductType", "DT02");
         request.add("deviceNo", "862873024790260");
-        request.add("feeCode", "");
-        request.add("tellerNo", "");
         request.add("transCode", "105129");
         request.add("transTime", "2017-03-20 15:28:21");
         request.add("txBrNo", "461910");
@@ -80,14 +75,13 @@ public class SearchFragment extends BaseFragment {
 
         queue.add(NOHTTP_WHAT, request, new OnResponseListener<String>() {
             @Override
-            public void onStart(int what) {
-
-            }
+            public void onStart(int what) {}
 
             @Override
             public void onSucceed(int what, Response<String> response) {
-                Logger.d(response.get());
-                Logger.e(response.getHeaders());
+                if (what == NOHTTP_WHAT)
+                   Logger.d(response.get());
+                   Logger.e(response.getHeaders());
             }
 
             @SuppressWarnings("ThrowableResultOfMethodCallIgnored")
@@ -106,11 +100,8 @@ public class SearchFragment extends BaseFragment {
                 }
                 Logger.e("错误：" + exception.getMessage());
             }
-
             @Override
-            public void onFinish(int what) {
-
-            }
+            public void onFinish(int what) {}
         });
     }
 }

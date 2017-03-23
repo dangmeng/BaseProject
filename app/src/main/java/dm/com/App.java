@@ -19,7 +19,7 @@ public class App  extends Application{
     public void onCreate() {
         super.onCreate();
         Logger.setDebug(true);
-        Logger.setTag("==dm==");
+        Logger.setTag("==BaseProject==");
         NoHttp.initialize(this,new NoHttp.Config()
                 .setConnectTimeout(5 * 1000)
                 .setReadTimeout(5 * 1000)
