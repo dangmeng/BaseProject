@@ -12,6 +12,7 @@
     <dimen name="middle_size">16sp</dimen>
     <dimen name="lager_size">18sp</dimen>
     <dimen name="big_lager_size">20sp</dimen>
+    <dimen name="toolbar_height">48dp</dimen>
     <!-- google -->
     <dimen name="refresh_header_height_google">100dp</dimen>
     <dimen name="refresh_trigger_offset_google">100dp</dimen>

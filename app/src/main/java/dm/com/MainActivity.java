@@ -1,7 +1,12 @@
 package dm.com;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
 
+import dm.com.ui.view.activity.BaseActivity;
 import dm.com.ui.view.fragment.BaseFragment;
 import dm.com.ui.view.fragment.CameraFragment;
 import dm.com.ui.view.fragment.HelpFragment;
@@ -10,9 +15,8 @@ import dm.com.ui.view.fragment.SearchFragment;
 import me.majiajie.pagerbottomtabstrip.Controller;
 import me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectListener;
-import me.yokeyword.fragmentation.SupportActivity;
 
-public class MainActivity extends SupportActivity {
+public class MainActivity extends BaseActivity {
 
     private PagerBottomTabLayout tabLayout;
     private static final int FIRST = 0;
@@ -22,14 +26,14 @@ public class MainActivity extends SupportActivity {
     private BaseFragment[] mFragments;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView(savedInstanceState);
-        initTab();
+    protected int getLayoutResource() {
+        return R.layout.activity_main;
     }
 
-    private void initView(Bundle savedInstanceState) {
+    @Override
+    protected void initData(@Nullable Bundle savedInstanceState) {
+        setTitle("相机");
+        toolbar.setNavigationIcon(new ColorDrawable(Color.parseColor("#00000000")));
         // (默认使用Fragment根布局的background属性,如若没有则使用Theme的windowBackground属性)
         setDefaultFragmentBackground(android.R.color.white);
 //        int defaultFragmentBackground = getDefaultFragmentBackground();
@@ -57,7 +61,10 @@ public class MainActivity extends SupportActivity {
             mFragments[FOUR] = findFragment(HelpFragment.class);
         }
 
+        initTab();
+
     }
+
     private void initTab() {
 
         Controller controller = tabLayout.builder()
@@ -73,15 +80,19 @@ public class MainActivity extends SupportActivity {
                 switch (index) {
                     case FIRST:
                         showHideFragment(mFragments[FIRST]);
+                        setTitle("相机");
                         break;
                     case SECOND:
                         showHideFragment(mFragments[SECOND]);
+                        setTitle("位置");
                         break;
                     case THIRD:
                         showHideFragment(mFragments[THIRD]);
+                        setTitle("搜索");
                         break;
                     case FOUR:
                         showHideFragment(mFragments[FOUR]);
+                        setTitle("帮助");
                         break;
                 }
             }
@@ -89,6 +100,12 @@ public class MainActivity extends SupportActivity {
             public void onRepeatClick(int index, Object tag) {}
         };
         controller.addTabItemClickListener(listener);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
 

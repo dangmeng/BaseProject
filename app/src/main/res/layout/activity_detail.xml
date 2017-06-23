@@ -7,16 +7,11 @@
     android:background="@android:color/white"
     tools:context="dm.com.ui.view.activity.DetailActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
-
     <ImageView
         android:id="@+id/image_detail"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:transitionName="photo_hero"
-        android:layout_below="@id/toolbar"
         android:scaleType="centerCrop"/>
 
 
