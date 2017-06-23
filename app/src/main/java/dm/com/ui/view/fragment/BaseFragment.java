@@ -1,4 +1,4 @@
-package dm.com.ui.fragment;
+package dm.com.ui.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,12 +21,14 @@ public abstract class BaseFragment extends SwipeBackFragment {
      * 用来标记取消
      */
     protected Object object = new Object();
+    protected View rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return initView(inflater,container,savedInstanceState);
+        rootView = inflater.inflate(getLayoutRes(), container, false);
+        return rootView;
     }
 
-    protected abstract View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) ;
+    protected abstract int getLayoutRes ();
 }

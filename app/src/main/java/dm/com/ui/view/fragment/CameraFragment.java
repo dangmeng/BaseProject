@@ -1,4 +1,4 @@
-package dm.com.ui.fragment;
+package dm.com.ui.view.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 import dm.com.R;
-import dm.com.ui.fragment.activity.DetailActivity;
+import dm.com.ui.view.activity.DetailActivity;
 
 /**
  * Created by m on 2017/2/23.
@@ -28,15 +28,6 @@ import dm.com.ui.fragment.activity.DetailActivity;
  */
 
 public class CameraFragment extends BaseFragment {
-
-
-    private View rootView;
-
-    @Override
-    protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.camera_fragment, container, false);
-        return rootView;
-    }
 
     @SuppressWarnings("ConstantConditions")
     @Override
@@ -57,6 +48,11 @@ public class CameraFragment extends BaseFragment {
             }
         });
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+    }
+
+    @Override
+    protected int getLayoutRes() {
+        return R.layout.camera_fragment;
     }
 
     private static class GridViewAdapter extends BaseAdapter {

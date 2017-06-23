@@ -2,11 +2,11 @@ package dm.com;
 
 import android.os.Bundle;
 
-import dm.com.ui.fragment.BaseFragment;
-import dm.com.ui.fragment.CameraFragment;
-import dm.com.ui.fragment.HelpFragment;
-import dm.com.ui.fragment.PositionFragment;
-import dm.com.ui.fragment.SearchFragment;
+import dm.com.ui.view.fragment.BaseFragment;
+import dm.com.ui.view.fragment.CameraFragment;
+import dm.com.ui.view.fragment.HelpFragment;
+import dm.com.ui.view.fragment.PositionFragment;
+import dm.com.ui.view.fragment.SearchFragment;
 import me.majiajie.pagerbottomtabstrip.Controller;
 import me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectListener;

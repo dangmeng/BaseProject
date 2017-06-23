@@ -9,6 +9,7 @@
     tools:context="dm.com.MainActivity">
 
     <FrameLayout
+        android:background="@color/colorAccent"
         android:layout_weight="1"
         android:id="@+id/main_container"
         android:layout_width="match_parent"

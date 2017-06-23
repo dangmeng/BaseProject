@@ -17,4 +17,8 @@
         <attr name="indicatorName" format="string"/>
         <attr name="indicatorColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="Follow">
+        <attr name="target" format="reference"/>
+    </declare-styleable>
 </resources>

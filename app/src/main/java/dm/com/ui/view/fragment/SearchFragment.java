@@ -1,11 +1,8 @@
-package dm.com.ui.fragment;
+package dm.com.ui.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yanzhenjie.nohttp.Logger;
@@ -37,18 +34,17 @@ public class SearchFragment extends BaseFragment {
     private RequestQueue queue;
 
     @Override
-    protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText(SearchFragment.class.getSimpleName());
-        queue = NoHttp.newRequestQueue(1);
-        return textView;
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
-        pushBody();
     }
+
+
+
 
     /**nohttp post请求测试案例*/
     private void pushBody() {
@@ -103,5 +99,10 @@ public class SearchFragment extends BaseFragment {
             @Override
             public void onFinish(int what) {}
         });
+    }
+
+    @Override
+    protected int getLayoutRes() {
+        return R.layout.fragment_search_layout;
     }
 }

@@ -1,13 +1,11 @@
-package dm.com.ui.fragment;
+package dm.com.ui.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yanzhenjie.nohttp.Logger;
@@ -36,14 +34,11 @@ public class PositionFragment extends BaseFragment {
      */
     private static final int NOHTTP_WHAT = 0x001;
     private TextView textView;
-    private View rootView;
     private MultipleStatusView multipleStatusView;
 
-
     @Override
-    protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.position_fragment, container, false);
-        return rootView;
+    protected int getLayoutRes() {
+        return R.layout.position_fragment;
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -75,7 +70,7 @@ public class PositionFragment extends BaseFragment {
 
     private void loadData() {
         multipleStatusView.showLoading();
-        String url = Config.getRequestUrl(pageSize,page);
+        String url = Config.getRequestUrl("Android" , pageSize , page);
         Logger.e(url);
         StringRequest request = new StringRequest(url, RequestMethod.GET);
         request.setCancelSign(object);
@@ -92,7 +87,6 @@ public class PositionFragment extends BaseFragment {
                         multipleStatusView.showContent();
                         textView.setText(result);
                     }
-                    Logger.e(t.getResult());
                 }
             }
 

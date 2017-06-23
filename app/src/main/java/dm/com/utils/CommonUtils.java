@@ -1,9 +1,5 @@
 package dm.com.utils;
 
-/**
- * Created by Administrator on 2017/1/5 0005.
- */
-
 public class CommonUtils {
     private static long lastClickTime;
     public static boolean isFastDoubleClick() {

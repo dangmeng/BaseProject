@@ -11,8 +11,8 @@ public class Config {
 
     public static final String SERVER_BASEURL =  "http://192.168.2.3:9008/dibs-gw-4/web/dealWebTrade.do";
 
-    public static String getRequestUrl (int pageSize , int page) {
-       return  "http://gank.io/api/data/all" + "/"
+    public static String getRequestUrl (String type , int pageSize , int page) {
+       return  "http://gank.io/api/data/" + type + "/"
                 + String.valueOf(pageSize) + "/"
                 + String.valueOf(page);
     }

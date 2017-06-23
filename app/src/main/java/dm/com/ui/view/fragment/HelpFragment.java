@@ -1,14 +1,11 @@
-package dm.com.ui.fragment;
+package dm.com.ui.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,26 +32,17 @@ import dm.com.http.StringRequest;
 public class HelpFragment extends BaseFragment {
 
     private static final int NOHTTP_WHAT = 0x002;
-    private View rootView;
     private TextView textView;
-
-    @Override
-    protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.help_fragment, container, false);
-        return rootView;
-    }
 
     @SuppressWarnings("ConstantConditions")
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         textView = (TextView) rootView.findViewById(R.id.tv_content);
-        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar_help);
+        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.help_name);
         setHasOptionsMenu(true);
-        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar_newsdetail);
-        collapsingToolbarLayout.setTitle("帮助");
 
     }
 
@@ -65,7 +53,7 @@ public class HelpFragment extends BaseFragment {
     }
 
     private void loadData() {
-        String url = Config.getRequestUrl(pageSize,page);
+        String url = Config.getRequestUrl("all" , pageSize , page);
         Logger.e(url);
         StringRequest request = new StringRequest(url, RequestMethod.GET);
         request.setCancelSign(object);
@@ -79,7 +67,6 @@ public class HelpFragment extends BaseFragment {
                     if (!TextUtils.isEmpty(result)) {
                         textView.setText(result);
                     }
-                    Logger.e(t.getResult());
                 }
             }
 
@@ -100,5 +87,10 @@ public class HelpFragment extends BaseFragment {
                 Logger.e("错误：" + exception.getMessage());
             }
         });
+    }
+
+    @Override
+    protected int getLayoutRes() {
+        return R.layout.help_fragment;
     }
 }
