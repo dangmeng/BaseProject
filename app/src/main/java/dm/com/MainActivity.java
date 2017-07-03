@@ -108,5 +108,8 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-
+    @Override
+    public boolean swipeBackPriority() {
+        return false;
+    }
 }

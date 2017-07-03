@@ -30,7 +30,6 @@ public abstract class BaseActivity extends SwipeBackActivity {
 
     protected Toolbar toolbar;
     private TextView mTvTitle;
-    private FrameLayout mViewContent;
     private View mBaseStatusBar;
 
 
@@ -63,7 +62,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
         }
 
         mTvTitle = (TextView) findViewById(R.id.tv_base_title);
-        mViewContent = (FrameLayout) findViewById(R.id.fl_base_viewContent);
+        FrameLayout mViewContent = (FrameLayout) findViewById(R.id.fl_base_viewContent);
         initStatusBarView();
 
         //将继承 TopBarBaseActivity 的布局解析到 FrameLayout 里面
