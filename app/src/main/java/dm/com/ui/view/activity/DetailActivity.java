@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bumptech.glide.Glide;
 
 import dm.com.R;
-
+@Route(path = "/detail/activity")
 public class DetailActivity extends BaseActivity {
 
 

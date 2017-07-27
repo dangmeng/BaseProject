@@ -1,7 +1,6 @@
 package dm.com.ui.view.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,10 +14,10 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 
 import dm.com.R;
-import dm.com.ui.view.activity.DetailActivity;
 
 /**
  * Created by m on 2017/2/23.
@@ -38,7 +37,7 @@ public class CameraFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String imageUrl = (String) view.getTag();
-                startActivity(new Intent(getActivity(), DetailActivity.class).putExtra("url",imageUrl));
+                ARouter.getInstance().build("/detail/activity").withString("url",imageUrl).navigation();
             }
         });
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
