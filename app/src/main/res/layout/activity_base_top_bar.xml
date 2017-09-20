@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical">
     <!--一个与状态栏一样高度的View-->
     <View
@@ -11,6 +12,7 @@
         android:background="@color/title_bar_bg"/>
 
     <android.support.v7.widget.Toolbar
+        android:layout_below="@+id/v_base_status"
         android:id="@+id/tb_base_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
@@ -28,9 +30,20 @@
     </android.support.v7.widget.Toolbar>
 
     <FrameLayout
+        android:layout_below="@+id/tb_base_toolbar"
         android:id="@+id/fl_base_viewContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </FrameLayout>
 
-</LinearLayout>
+    </FrameLayout>
+    <dm.com.weiget.avi.AVLoadingIndicatorView
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:id="@+id/indicator"
+        app:indicatorName="BallPulseIndicator"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorColor="@color/colorAccent"/>
+</RelativeLayout>

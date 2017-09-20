@@ -13,13 +13,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import dm.com.R;
 import dm.com.http.CallServer;
 import dm.com.utils.BarUtils;
+import dm.com.weiget.avi.AVLoadingIndicatorView;
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
 /**
@@ -32,6 +33,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
     protected Toolbar toolbar;
     private TextView mTvTitle;
     private View mBaseStatusBar;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
 
     @Override
@@ -67,6 +69,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
         FrameLayout mViewContent = (FrameLayout) findViewById(R.id.fl_base_viewContent);
         initStatusBarView();
 
+        avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.indicator);
         //将继承 TopBarBaseActivity 的布局解析到 FrameLayout 里面
         LayoutInflater.from(this).inflate(layoutResource, mViewContent);
     }
@@ -77,7 +80,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
             mBaseStatusBar.setVisibility(View.VISIBLE);
             int statusHeight = BarUtils.getStatusBarHeight(this);
             if (statusHeight != -1) {
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)
                         mBaseStatusBar.getLayoutParams();
                 params.height = statusHeight;
                 mBaseStatusBar.setLayoutParams(params);
@@ -165,5 +168,15 @@ public abstract class BaseActivity extends SwipeBackActivity {
             mBaseStatusBar.setVisibility(View.GONE);
             toolbar.setVisibility(View.GONE);
         }
+    }
+
+    protected void showAvi() {
+        avLoadingIndicatorView.setVisibility(View.VISIBLE);
+        avLoadingIndicatorView.show();
+    }
+
+    protected void hideAvi() {
+        avLoadingIndicatorView.setVisibility(View.INVISIBLE);
+        avLoadingIndicatorView.hide();
     }
 }

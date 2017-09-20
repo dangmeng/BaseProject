@@ -45,6 +45,7 @@ public class DetailActivity extends BaseActivity {
                         .launch();
             }
         });
+
     }
 
 }
