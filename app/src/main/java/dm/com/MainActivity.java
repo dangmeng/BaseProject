@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import dm.com.ui.view.activity.BaseActivity;
-import dm.com.ui.view.fragment.BaseFragment;
+import dm.com.ui.view.base.BaseActivity;
+import dm.com.ui.view.base.BaseFragment;
 import dm.com.ui.view.fragment.CameraFragment;
 import dm.com.ui.view.fragment.HelpFragment;
 import dm.com.ui.view.fragment.PositionFragment;

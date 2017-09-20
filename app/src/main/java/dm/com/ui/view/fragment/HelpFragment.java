@@ -21,6 +21,7 @@ import dm.com.http.CallServer;
 import dm.com.http.Result;
 import dm.com.http.SimpleHttpListener;
 import dm.com.http.StringRequest;
+import dm.com.ui.view.base.BaseFragment;
 
 /**
  * Created by m on 2017/2/23.
@@ -85,5 +86,10 @@ public class HelpFragment extends BaseFragment {
     @Override
     protected int getLayoutRes() {
         return R.layout.help_fragment;
+    }
+
+    @Override
+    public void initView() {
+
     }
 }

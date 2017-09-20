@@ -8,6 +8,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bumptech.glide.Glide;
 
 import dm.com.R;
+import dm.com.ui.view.base.BaseActivity;
+
 @Route(path = "/detail/activity")
 public class DetailActivity extends BaseActivity {
 

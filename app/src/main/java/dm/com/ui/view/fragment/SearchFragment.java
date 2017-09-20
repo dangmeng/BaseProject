@@ -19,6 +19,7 @@ import com.yanzhenjie.nohttp.rest.Response;
 
 import dm.com.Config;
 import dm.com.R;
+import dm.com.ui.view.base.BaseFragment;
 
 /**
  * Created by m on 2017/2/23.
@@ -104,5 +105,10 @@ public class SearchFragment extends BaseFragment {
     @Override
     protected int getLayoutRes() {
         return R.layout.fragment_search_layout;
+    }
+
+    @Override
+    public void initView() {
+
     }
 }

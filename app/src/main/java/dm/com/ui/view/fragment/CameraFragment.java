@@ -18,6 +18,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 
 import dm.com.R;
+import dm.com.ui.view.base.BaseFragment;
 
 /**
  * Created by m on 2017/2/23.
@@ -46,6 +47,11 @@ public class CameraFragment extends BaseFragment {
     @Override
     protected int getLayoutRes() {
         return R.layout.camera_fragment;
+    }
+
+    @Override
+    public void initView() {
+
     }
 
     private static class GridViewAdapter extends BaseAdapter {

@@ -1,4 +1,4 @@
-package dm.com.ui.view.activity;
+package dm.com.ui.view.base;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
 import dm.com.R;
 import dm.com.http.CallServer;
 import dm.com.utils.BarUtils;
@@ -40,7 +41,8 @@ public abstract class BaseActivity extends SwipeBackActivity {
         setContentView(R.layout.activity_base_top_bar);
         if (getLayoutResource() > 0) {
             initContentView(getLayoutResource());
-//            unbinder = KnifeKit.bind(this);
+            // 初始化View注入
+            ButterKnife.bind(this);
         }
 
         initData(savedInstanceState);

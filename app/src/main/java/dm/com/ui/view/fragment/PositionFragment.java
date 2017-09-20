@@ -17,6 +17,7 @@ import dm.com.http.CallServer;
 import dm.com.http.Result;
 import dm.com.http.SimpleHttpListener;
 import dm.com.http.StringRequest;
+import dm.com.ui.view.base.BaseFragment;
 import dm.com.utils.CommonUtils;
 import dm.com.weiget.MultipleStatusView;
 
@@ -37,6 +38,11 @@ public class PositionFragment extends BaseFragment {
     @Override
     protected int getLayoutRes() {
         return R.layout.position_fragment;
+    }
+
+    @Override
+    public void initView() {
+
     }
 
     @SuppressWarnings("ConstantConditions")
