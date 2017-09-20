@@ -20,7 +20,7 @@ public class DetailActivity extends BaseActivity {
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
 
-        setTitle("相机");
+        setTitle(R.string.title_camera);
         ImageView imageView = (ImageView) findViewById(R.id.image_detail);
 
         String url = getIntent().getStringExtra("url");
