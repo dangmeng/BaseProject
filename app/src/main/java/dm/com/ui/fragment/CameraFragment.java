@@ -1,4 +1,4 @@
-package dm.com.ui.view.fragment;
+package dm.com.ui.fragment;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -14,11 +14,12 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 
 import dm.com.R;
-import dm.com.ui.view.base.BaseFragment;
+import dm.com.router.Router;
+import dm.com.ui.activity.DetailActivity;
+import dm.com.ui.base.BaseFragment;
 
 /**
  * Created by m on 2017/2/23.
@@ -38,7 +39,10 @@ public class CameraFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String imageUrl = (String) view.getTag();
-                ARouter.getInstance().build("/detail/activity").withString("url",imageUrl).navigation();
+                Router.newIntent(getActivity())
+                        .putString("url",imageUrl)
+                        .to(DetailActivity.class)
+                        .launch();
             }
         });
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));

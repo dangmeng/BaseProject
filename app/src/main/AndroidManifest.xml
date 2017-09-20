@@ -17,17 +17,22 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.TransParent">
+            android:theme="@style/AppTheme.TransParent"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.view.activity.DetailActivity"
-            android:theme="@style/AppTheme.TransParent">
+        <activity android:name=".ui.activity.DetailActivity"
+            android:theme="@style/AppTheme.TransParent"
+                  android:screenOrientation="portrait">
         </activity>
-
+        <activity android:name=".html.BrowserActivity"
+                  android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

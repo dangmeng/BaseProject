@@ -1,4 +1,4 @@
-package dm.com.ui.view.fragment;
+package dm.com.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,7 +19,7 @@ import com.yanzhenjie.nohttp.rest.Response;
 
 import dm.com.Config;
 import dm.com.R;
-import dm.com.ui.view.base.BaseFragment;
+import dm.com.ui.base.BaseFragment;
 
 /**
  * Created by m on 2017/2/23.

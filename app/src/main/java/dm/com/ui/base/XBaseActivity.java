@@ -1,4 +1,4 @@
-package dm.com.ui.view.base;
+package dm.com.ui.base;
 
 import android.app.Activity;
 import android.graphics.Color;

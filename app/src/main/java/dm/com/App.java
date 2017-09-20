@@ -2,7 +2,6 @@ package dm.com;
 
 import android.app.Application;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.yanzhenjie.nohttp.Logger;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.OkHttpNetworkExecutor;
@@ -27,12 +26,6 @@ public class App  extends Application{
                 .setCacheStore(new DBCacheStore(this).setEnable(false))
                 .setCookieStore(new DBCookieStore(this).setEnable(false))
                 .setNetworkExecutor(new OkHttpNetworkExecutor()));
-
-        if (BuildConfig.DEBUG) {
-            ARouter.openLog();
-            ARouter.openDebug();
-        }
-        ARouter.init(this);
 
     }
 }

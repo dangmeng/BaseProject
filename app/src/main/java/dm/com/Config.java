@@ -1,5 +1,7 @@
 package dm.com;
 
+import dm.com.router.Router;
+
 /**
  * Created by m on 2017/3/10.
  * ${describe}
@@ -16,4 +18,16 @@ public class Config {
                 + String.valueOf(pageSize) + "/"
                 + String.valueOf(page);
     }
+
+    // #router
+    public static final int ROUTER_ANIM_ENTER = Router.RES_NONE;
+    public static final int ROUTER_ANIM_EXIT = Router.RES_NONE;
+
+    public static final int MODE_DEFAULT = 0;
+
+    public static final int MODE_SONIC = 1;
+
+    public static final int MODE_SONIC_WITH_OFFLINE_CACHE = 2;
+
+    public static final String DEMO_URL = "http://mc.vip.qq.com/demo/indexv3";
 }

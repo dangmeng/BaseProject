@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import dm.com.ui.view.base.BaseActivity;
-import dm.com.ui.view.base.BaseFragment;
-import dm.com.ui.view.fragment.CameraFragment;
-import dm.com.ui.view.fragment.HelpFragment;
-import dm.com.ui.view.fragment.PositionFragment;
-import dm.com.ui.view.fragment.SearchFragment;
+import dm.com.ui.base.BaseActivity;
+import dm.com.ui.base.BaseFragment;
+import dm.com.ui.fragment.CameraFragment;
+import dm.com.ui.fragment.HelpFragment;
+import dm.com.ui.fragment.PositionFragment;
+import dm.com.ui.fragment.SearchFragment;
 import me.majiajie.pagerbottomtabstrip.Controller;
 import me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectListener;

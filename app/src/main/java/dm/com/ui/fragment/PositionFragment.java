@@ -1,4 +1,4 @@
-package dm.com.ui.view.fragment;
+package dm.com.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,7 +17,7 @@ import dm.com.http.CallServer;
 import dm.com.http.Result;
 import dm.com.http.SimpleHttpListener;
 import dm.com.http.StringRequest;
-import dm.com.ui.view.base.BaseFragment;
+import dm.com.ui.base.BaseFragment;
 import dm.com.utils.CommonUtils;
 import dm.com.weiget.MultipleStatusView;
 
