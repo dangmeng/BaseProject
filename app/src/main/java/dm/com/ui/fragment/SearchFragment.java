@@ -3,6 +3,7 @@ package dm.com.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.yanzhenjie.nohttp.Logger;
@@ -17,9 +18,11 @@ import com.yanzhenjie.nohttp.rest.Request;
 import com.yanzhenjie.nohttp.rest.RequestQueue;
 import com.yanzhenjie.nohttp.rest.Response;
 
+import butterknife.BindView;
 import dm.com.Config;
 import dm.com.R;
 import dm.com.ui.base.BaseFragment;
+import skin.support.SkinCompatManager;
 
 /**
  * Created by m on 2017/2/23.
@@ -33,6 +36,9 @@ public class SearchFragment extends BaseFragment {
      */
     private static final int NOHTTP_WHAT = 0x002;
     private RequestQueue queue;
+
+    @BindView(R.id.choose_color)
+    Button btn_choose;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -109,6 +115,11 @@ public class SearchFragment extends BaseFragment {
 
     @Override
     public void initView() {
-
+        btn_choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SkinCompatManager.getInstance().loadSkin("orange", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+            }
+        });
     }
 }

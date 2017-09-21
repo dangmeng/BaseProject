@@ -2,11 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dm.com">
 
+    <!-- 需要动态申请的权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 需要动态申请的权限 -->
+
+    <!-- 后台自动授予的权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 后台自动授予的权限 -->
 
     <application
         android:name=".App"
@@ -17,7 +22,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.TransParent"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -27,7 +31,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.DetailActivity"
-            android:theme="@style/AppTheme.TransParent"
                   android:screenOrientation="portrait">
         </activity>
         <activity android:name=".html.BrowserActivity"

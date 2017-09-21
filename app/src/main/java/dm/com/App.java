@@ -8,6 +8,8 @@ import com.yanzhenjie.nohttp.OkHttpNetworkExecutor;
 import com.yanzhenjie.nohttp.cache.DBCacheStore;
 import com.yanzhenjie.nohttp.cookie.DBCookieStore;
 
+import skin.support.SkinCompatManager;
+
 /**
  * Created by m on 2017/2/23.
  * ${describe}
@@ -27,5 +29,14 @@ public class App  extends Application{
                 .setCookieStore(new DBCookieStore(this).setEnable(false))
                 .setNetworkExecutor(new OkHttpNetworkExecutor()));
 
+        initSkin();
+
+    }
+
+    private void initSkin() {
+        SkinCompatManager.withoutActivity(this)        // 基础控件换肤初始化
+                .setSkinStatusBarColorEnable(false)    // 关闭状态栏换肤，默认打开[可选]
+                .setSkinWindowBackgroundEnable(false)  // 关闭windowBackground换肤，默认打开[可选]
+                .loadSkin();
     }
 }

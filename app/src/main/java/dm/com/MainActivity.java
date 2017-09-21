@@ -68,10 +68,10 @@ public class MainActivity extends BaseActivity {
     private void initTab() {
 
         Controller controller = tabLayout.builder()
-                .addTabItem(R.mipmap.icon_camera, "相机", 0xFF00796B)
-                .addTabItem(R.mipmap.icon_position, "位置", 0xFF5B4947)
-                .addTabItem(R.mipmap.icon_search, "搜索", 0xFF607D8B)
-                .addTabItem(R.mipmap.icon_help, "帮助", 0xFFF57C00)
+                .addTabItem(R.mipmap.icon_camera, "相机", getResources().getColor(R.color.colorPrimary))//0xFF00796B
+                .addTabItem(R.mipmap.icon_position, "位置", getResources().getColor(R.color.colorPrimary))
+                .addTabItem(R.mipmap.icon_search, "搜索", getResources().getColor(R.color.colorPrimary))
+                .addTabItem(R.mipmap.icon_help, "帮助", getResources().getColor(R.color.colorPrimary))
                 .build();
 
         OnTabItemSelectListener listener = new OnTabItemSelectListener() {
@@ -108,8 +108,4 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    @Override
-    public boolean swipeBackPriority() {
-        return false;
-    }
 }

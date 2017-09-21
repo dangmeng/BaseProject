@@ -16,25 +16,28 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.yanzhenjie.nohttp.Logger;
+
+
 import butterknife.ButterKnife;
 import dm.com.R;
 import dm.com.http.CallServer;
 import dm.com.utils.BarUtils;
 import dm.com.weiget.avi.AVLoadingIndicatorView;
-import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
+import me.yokeyword.fragmentation.SupportActivity;
 
 /**
  * Created by m on 2017/2/24.
  * ${describe}
  */
 
-public abstract class BaseActivity extends SwipeBackActivity {
+public abstract class BaseActivity extends SupportActivity {
 
     protected Toolbar toolbar;
     private TextView mTvTitle;
     private View mBaseStatusBar;
     private AVLoadingIndicatorView avLoadingIndicatorView;
-
+    private String themeString;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,8 +51,6 @@ public abstract class BaseActivity extends SwipeBackActivity {
         }
 
         initData(savedInstanceState);
-
-
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -115,13 +116,13 @@ public abstract class BaseActivity extends SwipeBackActivity {
 
     protected abstract void initData(@Nullable Bundle savedInstanceState);
 
-    protected  void setActionIcon(int iconRes) {
+    protected void setActionIcon(int iconRes) {
         toolbar.setNavigationIcon(iconRes);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)  {
-        if(item.getItemId() == android.R.id.home)  {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
             return true;
         }
@@ -179,4 +180,10 @@ public abstract class BaseActivity extends SwipeBackActivity {
         avLoadingIndicatorView.setVisibility(View.INVISIBLE);
         avLoadingIndicatorView.hide();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 }

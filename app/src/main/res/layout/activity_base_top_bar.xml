@@ -9,14 +9,14 @@
         android:id="@+id/v_base_status"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="@color/title_bar_bg"/>
+        android:background="?attr/colorPrimary"/>
 
     <android.support.v7.widget.Toolbar
         android:layout_below="@+id/v_base_status"
         android:id="@+id/tb_base_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
-        android:background="@color/title_bar_bg">
+        android:background="?attr/colorPrimary">
 
         <TextView
             android:id="@+id/tv_base_title"

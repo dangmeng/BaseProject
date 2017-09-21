@@ -24,7 +24,11 @@ android {
         }
     }
 }
-
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -72,4 +76,13 @@ dependencies {
 
     //H5
     compile 'com.tencent.sonic:sdk:1.0.0'
+
+    //event
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //permission
+    compile 'com.yanzhenjie:permission:1.1.0'
+
+    //theme
+    compile 'skin.support:skin-support:2.1.4'
 }

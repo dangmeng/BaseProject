@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="dm.com.ui.module.activity.DetailActivity">
+    tools:context="dm.com.ui.activity.DetailActivity">
 
     <ImageView
         android:id="@+id/image_detail"
@@ -13,6 +13,15 @@
         android:layout_height="400dp"
         android:transitionName="photo_hero"
         android:scaleType="centerCrop"/>
+
+    <Button
+        android:id="@+id/choose_color"
+        android:padding="@dimen/dp_10"
+        android:layout_margin="@dimen/dp_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:background="@color/colorPrimary"/>
 
 
 </RelativeLayout>
