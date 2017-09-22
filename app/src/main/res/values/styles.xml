@@ -6,7 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <!-- Base application theme. -->
@@ -14,6 +13,10 @@
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="StartTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/startbg</item>
     </style>
 
     <style name="TransparentText">

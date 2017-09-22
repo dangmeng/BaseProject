@@ -23,4 +23,6 @@
     <dimen name="load_more_trigger_offset_google">60dp</dimen>
     <dimen name="load_more_final_offset_google">100dp</dimen>
     <dimen name="load_more_drawable_size_google">36dp</dimen>
+    <dimen name="indicator_size">10dp</dimen>
+    <dimen name="indicator_spacing">2dp</dimen>
 </resources>

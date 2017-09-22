@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import dm.com.R;
+import skin.support.widget.SkinCompatRelativeLayout;
 
 /**
  * 类描述：  一个方便在多种状态切换的view
@@ -16,7 +16,7 @@ import dm.com.R;
  * 创建人:   续写经典
  * 创建时间: 2016/1/15 10:20.
  */
-public class MultipleStatusView extends RelativeLayout {
+public class MultipleStatusView extends SkinCompatRelativeLayout {
     public static final int STATUS_CONTENT = 0x00;
     public static final int STATUS_LOADING = 0x01;
     public static final int STATUS_EMPTY = 0x02;

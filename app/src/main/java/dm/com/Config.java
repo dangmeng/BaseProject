@@ -30,4 +30,5 @@ public class Config {
     public static final int MODE_SONIC_WITH_OFFLINE_CACHE = 2;
 
     public static final String DEMO_URL = "http://mc.vip.qq.com/demo/indexv3";
+    public static final String FIRST_OPEN = "first_open";
 }
