@@ -1,22 +1,30 @@
 package dm.com;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.afollestad.materialdialogs.color.ColorChooserDialog;
+import com.afollestad.materialdialogs.util.DialogUtils;
+import com.yanzhenjie.nohttp.Logger;
+
 import dm.com.ui.base.BaseActivity;
 import dm.com.ui.base.BaseFragment;
-import dm.com.ui.fragment.CameraFragment;
+import dm.com.ui.fragment.HomeFragment;
 import dm.com.ui.fragment.HelpFragment;
 import dm.com.ui.fragment.PositionFragment;
 import dm.com.ui.fragment.SearchFragment;
 import me.majiajie.pagerbottomtabstrip.Controller;
 import me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectListener;
+import skin.support.SkinCompatManager;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ColorChooserDialog.ColorCallback{
 
     private PagerBottomTabLayout tabLayout;
     private static final int FIRST = 0;
@@ -24,6 +32,7 @@ public class MainActivity extends BaseActivity {
     private static final int THIRD = 2;
     private static final int FOUR = 3;
     private BaseFragment[] mFragments;
+    private Context mContext;
 
     @Override
     protected int getLayoutResource() {
@@ -32,6 +41,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
+        mContext = this;
         setTitle("相机");
         toolbar.setNavigationIcon(new ColorDrawable(Color.parseColor("#00000000")));
         // (默认使用Fragment根布局的background属性,如若没有则使用Theme的windowBackground属性)
@@ -41,7 +51,7 @@ public class MainActivity extends BaseActivity {
         mFragments = new BaseFragment[4];
         if (savedInstanceState == null) {
 
-            mFragments[FIRST] = new CameraFragment();
+            mFragments[FIRST] = new HomeFragment();
             mFragments[SECOND] = new PositionFragment();
             mFragments[THIRD] = new SearchFragment();
             mFragments[FOUR] = new HelpFragment();
@@ -55,7 +65,7 @@ public class MainActivity extends BaseActivity {
             // 这里库已经做了Fragment恢复工作，不需要额外的处理
             // 这里我们需要拿到mFragments的引用，用下面的方法查找更方便些
             // 也可以通过getSupportFragmentManager.getFragments()自行进行判断查找(效率更高些)
-            mFragments[FIRST] = findFragment(CameraFragment.class);
+            mFragments[FIRST] = findFragment(HomeFragment.class);
             mFragments[SECOND] = findFragment(PositionFragment.class);
             mFragments[THIRD] = findFragment(SearchFragment.class);
             mFragments[FOUR] = findFragment(HelpFragment.class);
@@ -108,4 +118,17 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    @Override
+    public void onColorSelection(@NonNull ColorChooserDialog dialog, @ColorInt int selectedColor) {
+        int colors = R.array.colors;
+        int[] colorArray = DialogUtils.getColorArray(mContext, colors);
+        String[] stringArray = getResources().getStringArray(R.array.colors_name);
+        for (int i = 0; i < colorArray.length; i++) {
+            if (selectedColor == colorArray[i]) {
+                String color_name = stringArray[i];
+                Logger.e("选择的颜色" + color_name);
+                SkinCompatManager.getInstance().loadSkin(color_name, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+            }
+        }
+    }
 }

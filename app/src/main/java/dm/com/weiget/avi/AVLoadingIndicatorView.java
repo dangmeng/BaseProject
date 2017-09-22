@@ -17,8 +17,9 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 
 import dm.com.R;
+import skin.support.widget.SkinCompatView;
 
-public class AVLoadingIndicatorView extends View {
+public class AVLoadingIndicatorView extends SkinCompatView {
 
     private static final String TAG = "AVLoadingIndicatorView";
 
@@ -79,12 +80,6 @@ public class AVLoadingIndicatorView extends View {
 
     public AVLoadingIndicatorView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs, defStyleAttr, R.style.AVLoadingIndicatorView);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public AVLoadingIndicatorView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs, defStyleAttr, R.style.AVLoadingIndicatorView);
     }
 

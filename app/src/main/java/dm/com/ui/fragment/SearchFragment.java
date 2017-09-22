@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.yanzhenjie.nohttp.Logger;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.RequestMethod;
@@ -20,16 +21,16 @@ import com.yanzhenjie.nohttp.rest.Response;
 
 import butterknife.BindView;
 import dm.com.Config;
+import dm.com.MainActivity;
 import dm.com.R;
 import dm.com.ui.base.BaseFragment;
-import skin.support.SkinCompatManager;
 
 /**
  * Created by m on 2017/2/23.
  * ${describe}
  */
 
-public class SearchFragment extends BaseFragment {
+public class SearchFragment extends BaseFragment{
 
     /**
      * 用来标志请求的what, 类似handler的what一样，这里用来区分请求。
@@ -49,9 +50,6 @@ public class SearchFragment extends BaseFragment {
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
     }
-
-
-
 
     /**nohttp post请求测试案例*/
     private void pushBody() {
@@ -115,10 +113,21 @@ public class SearchFragment extends BaseFragment {
 
     @Override
     public void initView() {
+        setTheme();
+
+    }
+
+    private void setTheme() {
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SkinCompatManager.getInstance().loadSkin("orange", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                new ColorChooserDialog.Builder((MainActivity)getActivity(), R.string.theme)
+                        .customColors(R.array.colors, null)
+                        .doneButton(R.string.done)
+                        .cancelButton(R.string.cancel)
+                        .allowUserColorInput(false)
+                        .allowUserColorInputAlpha(false)
+                        .show();
             }
         });
     }

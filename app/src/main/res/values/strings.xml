@@ -16,4 +16,26 @@
     <string name="error_view_hint">加载失败，点击重试</string>
     <string name="no_network_view_hint">网络异常，点击重试</string>
     <string name="title_camera">相机</string>
+    <string name="theme">主题</string>
+    <string name="cancel">取消</string>
+    <string name="done">完成</string>
+
+    <array name="colors_name">
+        <item>origine</item>
+        <item>blue</item>
+        <item>red</item>
+        <item>brown</item>
+        <item>green</item>
+        <item>purple</item>
+        <item>teal</item>
+        <item>pink</item>
+        <item>deepPurple</item>
+        <item>orange</item>
+        <item>indigo</item>
+        <item>cyan</item>
+        <item>lightGreen</item>
+        <item>lime</item>
+        <item>deepOrange</item>
+        <item>blueGrey</item>
+    </array>
 </resources>

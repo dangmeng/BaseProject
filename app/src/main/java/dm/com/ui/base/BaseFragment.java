@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
-import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
+import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * Created by m on 2017/2/23.
  * ${describe}
  */
 
-public abstract class BaseFragment extends SwipeBackFragment {
+public abstract class BaseFragment extends SupportFragment {
 
     protected int page = 1;
     protected int pageSize = 30;
